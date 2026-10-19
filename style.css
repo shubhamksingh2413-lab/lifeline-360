@@ -811,3 +811,26 @@ footer small {
         animation-duration: 0.01ms !important;
     }
 }
+
+
+/* Authentication form spacing */
+#account #authForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#account #authForm label {
+    display: block;
+    margin-bottom: 2px;
+}
+
+#account #authForm input {
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+#account #authForm button {
+    margin-top: 4px;
+}

@@ -359,6 +359,48 @@ const loginBtn = document.getElementById("loginBtn");
 const logoutBtn = document.getElementById("logoutBtn");
 const authMessage = document.getElementById("authMessage");
 
+
+const forgotPasswordBtn = document.getElementById("forgotPasswordBtn");
+
+if (forgotPasswordBtn && typeof supabaseClient !== "undefined") {
+    forgotPasswordBtn.addEventListener("click", async function () {
+        const email = authEmail.value.trim();
+
+        if (!email) {
+            authMessage.textContent =
+                "Pehle apni registered email address bharo.";
+            authEmail.focus();
+            return;
+        }
+
+        forgotPasswordBtn.disabled = true;
+        authMessage.textContent = "Password reset email bheji ja rahi hai...";
+
+        try {
+            const { error } = await supabaseClient.auth.resetPasswordForEmail(
+                email,
+                {
+                    redirectTo: window.location.origin
+                }
+            );
+
+            if (error) {
+                authMessage.textContent =
+                    "Reset email nahi bheji ja saki: " + error.message;
+            } else {
+                authMessage.textContent =
+                    "Agar is email par account hai, to password reset link bhej diya gaya hai. Inbox aur spam folder check karein.";
+            }
+        } catch (error) {
+            authMessage.textContent =
+                "Kuch galat hua. Internet check karke dobara try karein.";
+        } finally {
+            forgotPasswordBtn.disabled = false;
+        }
+    });
+}
+
+
 if (
     typeof supabaseClient !== "undefined" &&
     signupBtn &&

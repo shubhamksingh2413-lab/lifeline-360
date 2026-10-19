@@ -33,9 +33,16 @@ async function showSOS() {
                 "https://www.google.com/maps?q=" +
                 latitude + "," + longitude;
 
-            const message =
-                "EMERGENCY SOS! Mujhe help ki zarurat hai. " +
-                "Meri current location: " + mapLink;
+           const customMessage = prompt(
+    "Emergency message likhein:",
+    "EMERGENCY SOS! Mujhe help ki zarurat hai. Please meri help karein."
+);
+
+if (customMessage === null) return;
+
+const message =
+    customMessage.trim() +
+    "\nMeri current location: " + mapLink;
 
             const { data: userData, error: userError } =
                 await supabaseClient.auth.getUser();

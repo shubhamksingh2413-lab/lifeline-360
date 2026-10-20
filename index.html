@@ -252,13 +252,15 @@
     Detect My Location
   </button>
 
-  <button id="shareLocationBtn" type="button" disabled>
-    Share My Location
-    <button id="sosShareLocationBtn" type="button">
-  SOS - Share Emergency Location
-    </button>
+  
+<button id="shareLocationBtn" type="button" disabled>
+  Share My Location
+</button>
 
-  </button>
+<button id="sosShareLocationBtn" type="button">
+  SOS - Share Emergency Location
+</button>
+
   <button id="findHospitalsBtn" type="button">
   Find Nearby Hospitals
 </button>
@@ -276,6 +278,45 @@
     <script src="supabase.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
+
+    
+<!-- LifeLine 360 Chatbot -->
+<button id="chatbotToggle" class="chatbot-toggle" type="button" aria-label="Open safety chatbot">
+  💬
+</button>
+
+<div id="chatbotWindow" class="chatbot-window" hidden>
+  <div class="chatbot-header">
+    <div>
+      <strong>LifeLine Assistant</strong>
+      <small>Safety help and guidance</small>
+    </div>
+    <button id="chatbotClose" type="button" aria-label="Close chatbot">×</button>
+  </div>
+
+  <div id="chatbotMessages" class="chatbot-messages" aria-live="polite">
+    <div class="bot-message">
+      Namaste! 👋 Main LifeLine Assistant hoon.
+      Aap SOS, first aid, road accident, fire safety,
+      trusted contacts ya emergency number ke baare mein pooch sakte hain.
+      <br><br>Emergency mein India ka 112 dial karein.
+    </div>
+  </div>
+
+  <form id="chatbotForm" class="chatbot-input-area">
+    <input
+      id="chatbotInput"
+      type="text"
+      placeholder="Apna sawaal likhein..."
+      aria-label="Ask LifeLine Assistant"
+      required
+    >
+    <button type="submit">Send</button>
+  </form>
+</div>
+
+<script src="chatbot.js"></script>
+</body>
+
 </body>
 </html>
-

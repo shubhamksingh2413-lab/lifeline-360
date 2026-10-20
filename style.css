@@ -834,3 +834,139 @@ footer small {
 #account #authForm button {
     margin-top: 4px;
 }
+
+/* LifeLine 360 Chatbot */
+.chatbot-toggle {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  background: #087f8c;
+  color: white;
+  font-size: 27px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+
+.chatbot-window {
+  position: fixed;
+  right: 24px;
+  bottom: 96px;
+  width: 350px;
+  max-width: calc(100vw - 32px);
+  height: 450px;
+  max-height: calc(100vh - 130px);
+  background: white;
+  border: 1px solid #dce5e8;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.chatbot-window[hidden] {
+  display: none !important;
+}
+
+.chatbot-header {
+  background: #087f8c;
+  color: white;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbot-header strong,
+.chatbot-header small {
+  display: block;
+}
+
+.chatbot-header small {
+  margin-top: 5px;
+  opacity: 0.9;
+}
+
+.chatbot-header button {
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.chatbot-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+  background: #f4f8f9;
+}
+
+.bot-message,
+.user-message {
+  padding: 11px 13px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  max-width: 88%;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.bot-message {
+  background: white;
+  color: #24343a;
+  border: 1px solid #e2e9eb;
+  margin-right: auto;
+}
+
+.user-message {
+  background: #087f8c;
+  color: white;
+  margin-left: auto;
+}
+
+.chatbot-input-area {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid #e2e9eb;
+  background: white;
+}
+
+.chatbot-input-area input {
+  min-width: 0;
+  flex: 1;
+  padding: 11px;
+  border: 1px solid #ccd8dc;
+  border-radius: 8px;
+  outline-color: #087f8c;
+}
+
+.chatbot-input-area button {
+  border: none;
+  border-radius: 8px;
+  background: #087f8c;
+  color: white;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .chatbot-toggle {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .chatbot-window {
+    right: 16px;
+    bottom: 88px;
+  }
+}

@@ -927,4 +927,42 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+/* LifeLine 360 - Google Sign-In */
+
+const googleLoginBtn = document.getElementById("googleLoginBtn");
+
+if (googleLoginBtn && typeof supabaseClient !== "undefined") {
+    googleLoginBtn.addEventListener("click", async function () {
+        googleLoginBtn.disabled = true;
+        googleLoginBtn.textContent = "Connecting to Google...";
+
+        try {
+            const { error } = await supabaseClient.auth.signInWithOAuth({
+                provider: "google",
+                options: {
+                    redirectTo: window.location.origin
+                }
+            });
+
+            if (error) {
+                throw error;
+            }
+        } catch (error) {
+            console.error("Google Login Error:", error);
+
+            const message =
+                document.getElementById("authMessage") ||
+                document.getElementById("authModalMessage");
+
+            if (message) {
+                message.textContent =
+                    "Google login failed: " + error.message;
+            }
+
+            googleLoginBtn.disabled = false;
+            googleLoginBtn.textContent = "🌐 Continue with Google";
+        }
+    });
+}
+
 
